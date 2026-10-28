@@ -13,8 +13,15 @@ def genera_aleatorios(n: int, minimo: int, maximo: int) -> list[int]:
     Devuelve:
     list[int]: Lista con n números enteros aleatorios.
     """
-    # TODO: Implementa esta función
-    pass
+    res = []
+    for i in range(n):
+        numero = random.randint(minimo, maximo)
+        if i > 0:
+            while numero == res[-1]:
+                numero = random.randint(minimo, maximo)
+
+        res.append(numero)
+    return res
 
 def intercala_listas(lista1: list, lista2: list) -> list:
     """
@@ -27,9 +34,22 @@ def intercala_listas(lista1: list, lista2: list) -> list:
     Devuelve:
     list: Lista resultante de intercalar las dos listas.
     """
-    # TODO: Implementa esta función
-    pass
+    res = []
+    i= 0
+    lista_mas_larga = None
 
+    if len(lista1) > len(lista2):
+        lista_mas_larga = lista1
+    else:
+        lista_mas_larga = lista2
+
+    while i < len(lista_mas_larga):
+        if i < len(lista1):
+            res.append(lista1[i])
+        if i < len(lista2):
+            res.append(lista2[i])
+        i +=1
+    return res
 def mezcla_ordenadas(lista1: list, lista2: list) -> list:
     """
     Mezcla dos listas ordenadas en una sola lista ordenada.
@@ -41,9 +61,22 @@ def mezcla_ordenadas(lista1: list, lista2: list) -> list:
     Devuelve:
     list: Lista resultante de mezclar las dos listas ordenadas.
     """
-    # TODO: Implementa esta función
-    pass
+    res = []
+    for e1,e2 in zip(lista1, lista2):
+        if e1 > e2:
+            res.append(e2)
+            res.append(e1)
+        else:
+            res.append(e1)
+            res.append(e2)
 
+    tam1 = len(lista1)
+    tam2 = len(lista2)
+    if tam1 > tam2:
+        res.extend(lista1[tam2:])
+    if tam2 > tam1:
+        res.extend(lista2[tam1:])
+    return res
 def ordena_bubble_sort(lista: list) -> None:
     """
     Ordena una lista de números enteros utilizando el algoritmo de ordenamiento bubble sort. 

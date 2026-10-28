@@ -164,8 +164,8 @@ def test_busca_duplicados():
 
 # Descomenta las llamadas de los tests que quieras ejecutar
 test_genera_aleatorios()
-#test_intercala_listas()
-#test_mezcla_ordenadas()
+test_intercala_listas()
+test_mezcla_ordenadas()
 #test_ordena_bubble_sort()
 #test_inserta_ordenado()
 #test_busca_duplicados()
