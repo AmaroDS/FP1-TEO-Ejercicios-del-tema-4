@@ -83,9 +83,19 @@ def ordena_bubble_sort(lista: list) -> None:
 
     Parámetros:
     lista (list[int]): Lista de números enteros a ordenar.
-    """    
-    # TODO: Implementa esta función
-    pass
+    """
+    cambio = True 
+
+    while cambio == True:
+        cambio = False
+        i = 0
+        for e1,e2 in zip(lista, lista[1:]):
+            if e1 > e2:
+                lista[i], lista[i+1] = lista[i+1], lista[i]
+                cambio = True
+            i += 1
+        
+
 
 def inserta_ordenado(lista_nombres: list[str], nombre: str) -> None:
     """

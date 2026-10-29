@@ -166,7 +166,7 @@ def test_busca_duplicados():
 test_genera_aleatorios()
 test_intercala_listas()
 test_mezcla_ordenadas()
-#test_ordena_bubble_sort()
+test_ordena_bubble_sort()
 #test_inserta_ordenado()
 #test_busca_duplicados()
 print("Todos los casos de prueba pasaron correctamente.")
