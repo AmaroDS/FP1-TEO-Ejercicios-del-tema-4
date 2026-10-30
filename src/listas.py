@@ -106,8 +106,34 @@ def inserta_ordenado(lista_nombres: list[str], nombre: str) -> None:
     lista_nombres (list[str]): Lista de nombres ordenada por longitud.
     nombre (str): Nombre a insertar.
     """
-    # TODO: Implementa esta función
-    pass
+    if len(lista_nombres) == 0:
+        lista_nombres.append(nombre)
+        return None
+
+    if len(lista_nombres) == 1:
+        if len(nombre)<len(lista_nombres[0]):
+            lista_nombres.insert(0,nombre)
+        else:
+            lista_nombres.append(nombre)
+        return None    
+
+    for e1,e2 in zip(lista_nombres, lista_nombres[1:]):
+        if len(e2) < len(e1):
+            return None
+    i=0
+    cambiado = False
+    for nombre_ya_apuntado in lista_nombres:
+        if len(nombre) < len(nombre_ya_apuntado):
+            lista_nombres.insert(i,nombre)
+            cambiado = True
+            break
+        i +=1
+
+    if not cambiado:
+            lista_nombres.append(nombre)
+
+
+    
 
 def busca_duplicados(lista: list) -> list:
     """

@@ -134,11 +134,14 @@ def transponer(
 
     res = []
 
-    for i in range(len(matriz)):
-        captura = []
+    num_filas = len(matriz)
+    num_columnas = len(matriz[0])
+
+    for i in range(num_columnas):
         j=0
-        while j < len(matriz[0]):
+        captura = []
+        for j in range(num_filas):
             captura.append(matriz[j][i])
-            j +=1
         res.append(captura)
+    
     return res
