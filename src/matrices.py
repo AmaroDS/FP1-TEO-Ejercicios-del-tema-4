@@ -86,7 +86,6 @@ def suma_filas(
     return res
 
 
-
 def suma_diagonal(matriz: list[list[int | float]]) -> int | float | None:
     """
     Suma los elementos de la diagonal principal de una matriz cuadrada.
@@ -112,6 +111,27 @@ def suma_diagonal(matriz: list[list[int | float]]) -> int | float | None:
         res += matriz[i][i]
     return res
 
+
+def suma_diagonal_secundaria(matriz: list[list[int | float]]) -> int | float | None:
+    '''
+    Devuelve la suma de la diagonal secundaria
+    '''
+    if not es_matriz(matriz):
+        return None
+
+    if matriz == []:
+        return 0
+
+    if len(matriz) != len(matriz[0]):
+        return None
+
+    suma = 0
+    numero_elementos = len(matriz)
+    for i in range(numero_elementos):
+        if i == numero_elementos:
+            break
+        suma += matriz[i][numero_elementos-1-i]
+    return suma
 
 def transponer(
     matriz: list[list[int | float]],

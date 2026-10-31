@@ -145,7 +145,25 @@ def busca_duplicados(lista: list) -> list:
     Devuelve:
     list: Lista con los elementos duplicados.
     """
-    # TODO: Implementa esta función:
+    
     # - usando count
+    '''
+    res = []
+    for palabra in lista:
+        if lista.count(palabra) > 1:
+            if not palabra in res:
+                res.append(palabra)
+       
+    return res
+    '''
     # - usando slicing y sin usar count
-    pass
+    res = []
+    i = 0
+    for palabra in lista:
+        i +=1
+        if i == len(lista):
+            break
+        if palabra in lista[i:] and not palabra in res:
+            res.append(palabra)
+    return res
+    

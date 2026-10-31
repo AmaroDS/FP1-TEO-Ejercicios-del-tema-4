@@ -1,4 +1,4 @@
-from matrices import es_matriz, suma_matrices, suma_filas, suma_diagonal, transponer
+from matrices import es_matriz, suma_matrices, suma_filas, suma_diagonal,suma_diagonal_secundaria, transponer
 
 
 def test_es_matriz():
@@ -39,7 +39,60 @@ def test_suma_diagonal():
     assert suma_diagonal([[1, 2, 3], [4, 5, 6]]) is None
     assert suma_diagonal([[1, 2], [3]]) is None
     assert suma_diagonal([]) == 0
+    
+def test_suma_diagonal_secundaria():
 
+    # Caso 1: Matriz vacía
+    assert suma_diagonal_secundaria([]) == 0
+
+    # Caso 2: Matriz de 1x1
+    assert suma_diagonal_secundaria([[5]]) == 5
+
+    # Caso 3: Matriz cuadrada de 2x2
+    assert suma_diagonal_secundaria([[1, 2], [3, 4]]) == 5
+
+    # Caso 4: Matriz cuadrada de 3x3
+    assert suma_diagonal_secundaria([
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]) == 15
+
+    # Caso 5: Matriz cuadrada de 4x4
+    assert suma_diagonal_secundaria([
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16]
+    ]) == 34
+
+    # Caso 6: Matriz con números negativos
+    assert suma_diagonal_secundaria([
+        [-1, -2, -3],
+        [-4, -5, -6],
+        [-7, -8, -9]
+    ]) == -15
+
+    # Caso 7: Matriz con números decimales
+    assert suma_diagonal_secundaria([
+        [1.5, 2.5],
+        [3.5, 4.5]
+    ]) == 6.0
+
+    # Caso 8: Matriz rectangular
+    assert suma_diagonal_secundaria([
+        [1, 2, 3],
+        [4, 5, 6]
+    ]) is None
+
+    # Caso 9: Matriz con filas de distinta longitud
+    assert suma_diagonal_secundaria([
+        [1, 2],
+        [3]
+    ]) is None
+
+    # Caso 10: Matriz con filas vacías
+    assert suma_diagonal_secundaria([[], []]) is None
 
 def test_transponer():
     assert transponer([[1, 2, 3], [4, 5, 6]]) == [
@@ -57,5 +110,6 @@ test_es_matriz()
 test_suma_matrices()
 test_suma_filas()
 test_suma_diagonal()
+test_suma_diagonal_secundaria()
 test_transponer()
 print("Todos los casos de prueba pasaron correctamente.")
