@@ -165,3 +165,34 @@ def transponer(
         res.append(captura)
     
     return res
+
+def multiplicar(m1: list[list[int | float]], m2: list[list[int | float]]
+) -> list[list[int | float]] | None:
+    '''
+    Devuelve la matriz multiplicación m1xm2.
+    '''
+    if not es_matriz(m1) or not es_matriz(m2):
+        return None
+    
+    num_filas= len(m1)
+    num_columnas = len(m2[0])
+    if num_filas != num_columnas:
+        return None
+
+    if m1 == []:
+        return[]
+
+    res = []
+    captura = []
+    for i in range(num_filas):
+        j=0
+        suma=0
+        for j in range(num_columnas):
+            suma += m1[i][j]*m2[j][i]
+        captura.append(suma)
+    res.append(captura)
+
+    return res
+    
+
+    # TODO: Para casa
