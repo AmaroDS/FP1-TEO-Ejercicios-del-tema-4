@@ -184,7 +184,7 @@ def multiplicar(m1: list[list[int | float]], m2: list[list[int | float]]
 
     res = []
     captura = []
-    for i in range(num_filas):
+    while i < len(num_filas):
         j=0
         suma=0
         for j in range(num_columnas):
