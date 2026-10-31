@@ -184,12 +184,16 @@ def multiplicar(m1: list[list[int | float]], m2: list[list[int | float]]
 
     res = []
     captura = []
-    while i < len(num_filas):
+    for i in range(num_filas):
         j=0
         suma=0
-        for j in range(num_columnas):
-            suma += m1[i][j]*m2[j][i]
-        captura.append(suma)
+        a=0
+        while a != num_filas-1:
+            for j in range(num_columnas):
+                suma += m1[a][j]*m2[j][i]
+                if j == num_columnas-1:
+                    a +=1
+            captura.append(suma)
     res.append(captura)
 
     return res
