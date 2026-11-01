@@ -198,6 +198,3 @@ def multiplicar(m1: list[list[int | float]], m2: list[list[int | float]]
 
 
     return res
-    
-
-    # TODO: Para casa
