@@ -173,28 +173,29 @@ def multiplicar(m1: list[list[int | float]], m2: list[list[int | float]]
     '''
     if not es_matriz(m1) or not es_matriz(m2):
         return None
-    
-    num_filas= len(m1)
-    num_columnas = len(m2[0])
-    if num_filas != num_columnas:
-        return None
 
     if m1 == []:
         return[]
+    
+    filas_m1= len(m1)
+    columnas_m1 = len(m1[0])
+    filas_m2= len(m2)
+    columnas_m2 = len(m2[0])
+
+    if columnas_m1 != filas_m2:
+        return None
 
     res = []
-    captura = []
-    for i in range(num_filas):
-        j=0
-        suma=0
-        a=0
-        while a != num_filas-1:
-            for j in range(num_columnas):
-                suma += m1[a][j]*m2[j][i]
-                if j == num_columnas-1:
-                    a +=1
+
+    for i in range(filas_m1):
+        captura = []
+        for j in range(columnas_m2):
+            suma = 0
+            for k in range(columnas_m1):
+                suma += m1[i][k]*m2[k][j]
             captura.append(suma)
-    res.append(captura)
+        res.append(captura)
+
 
     return res
     
